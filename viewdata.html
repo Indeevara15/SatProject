@@ -1,0 +1,34 @@
+{% extends 'adminnavbar.html' %}
+
+{% block content %}
+<h1 align="center">STUDENT DETAILS</h1>
+<table align="center" border="1" cellspacing="0">
+ <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Country</th>
+     <th>Pincode</th>
+    <th>SAT score</th>
+     <th>updatescore</th>
+     <th>deletedata</th>
+
+  </tr>
+  {% for i in sat %}
+    <tr>
+    <td>{{i.id}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.address}}</td>
+    <td>{{i.city}}</td>
+    <td>{{i.country}}</td>
+    <td>{{i.pincode}}</td>
+    <td>{{i.sat_score}}</td>
+    <td><a href="{% url 'update' i.id %}">Update</a></td>
+    <td><a href="{% url 'del' i.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
